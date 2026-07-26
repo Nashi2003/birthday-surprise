@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Our Journey ❤️</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: white;
+    padding: 30px;
+}
+
+h1{
+    color: #ff4d88;
+}
+
+.timeline{
+    max-width: 500px;
+    margin: auto;
+    line-height: 2;
+    font-size: 18px;
+}
+
+.countdown{
+    max-width: 500px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 18px;
+    background: #fff0f5;
+    color: #d6336c;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#timer{
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+button{
+    background: #ff4d88;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>❤️ Our Journey ❤️</h1>
+
+<div class="timeline">
+    <p>💗 Our First Date — 27 November</p>
+    <p>📞 Our First Call — 2 December</p>
+    <p>💋 Our First kiss — 9 December</p>
+    <p>💍 The Day We Got Engaged — 24 December</p>
+    <p>❤️ And this is just the beginning...</p>
+</div>
+
+<div class="countdown">
+    <div>💍 Wedding Countdown</div>
+    <div id="timer">Loading...</div>
+</div>
+
+<a href="photos.html">
+    <button>📸 View Our Memories</button>
+</a>
+
+<script>
+const weddingDate = new Date("December 12, 2026 00:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+        document.getElementById("timer").innerHTML = "✨ Today is the wedding day! ✨";
+        clearInterval(x);
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+updateCountdown();
+const x = setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>

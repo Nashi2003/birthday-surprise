@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#fffaf5,#ffe6ee);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    width:90%;
+    max-width:350px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.lock{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+h1{
+    color:#ff4d88;
+    margin-bottom:10px;
+}
+
+p{
+    color:#666;
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:2px solid #ffd6e7;
+    border-radius:10px;
+    text-align:center;
+    font-size:18px;
+    outline:none;
+    margin-bottom:20px;
+}
+
+input:focus{
+    border-color:#ff4d88;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d88;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#ff2f73;
+    transform:scale(1.03);
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="lock" id="lock">🔒</div>
+
+<h1>Surprise ❤️</h1>
+
+<p>
+Enter our engagement date<br>
+to unlock the surprise 💍
+</p>
+
+<input
+type="password"
+id="password"
+placeholder="DD-MM-YYYY">
+
+<button onclick="checkPassword()">
+🔓 Unlock
+</button>
+
+</div>
+
+<script>
+
+function checkPassword(){
+
+let pass=document.getElementById("password").value;
+
+if(pass=="24-12-2025"){
+
+document.getElementById("lock").innerHTML="🔓";
+
+setTimeout(function(){
+
+window.location.href="birthday.html";
+
+},800);
+
+}else{
+
+alert("Oops! That's not our special date ❤️");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
