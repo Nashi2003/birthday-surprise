@@ -1,171 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Our Memories ❤️</title>
 
 <style>
-
-body{
-    font-family:Arial, sans-serif;
-    background:#fffaf5;
-    text-align:center;
-    padding:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-}
-h1{
-    color:#ff4d88;
-    font-size:42px;
-    margin-bottom:25px;
-}
-.slide{
-    display:none;
-    animation:fade .5s ease;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.slide.active{
-    display:block;
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fffaf5, #ffe6ee);
+    text-align: center;
+    padding: 20px 15px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
 }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:scale(.95);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-.polaroid{
-    background:#fff;
-    padding:12px 12px 35px 12px;
-    border-radius:5px;
-    width:320px;   /* 280px → 220px */
-    margin:auto;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-    transform:rotate(-2deg);
-    transition:0.3s;
-    position:relative;
-}
-.polaroid::before{
-    content:"";
-    position:absolute;
-    width:70px;
-    height:18px;
-    background:#f5deb3;
-    top:-10px;
-    left:50%;
-    transform:translateX(-50%) rotate(-2deg);
-    opacity:0.9;
-}
-.polaroid:hover{
-
-transform:rotate(0deg) scale(1.03);
-
+.container {
+    width: 100%;
+    max-width: 650px;
 }
 
-.polaroid img{
-    width:100%;
-    height:420px;   /* 350px → 280px */
-    object-fit:cover;
-    display:block;
-}
-.polaroid p{
-    margin-top:10px;
-    font-size:18px;
-    color:#444;
-    text-align:center;
+h1 {
+    color: #ff4d88;
+    font-size: 28px;
+    margin-bottom: 10px;
+    line-height: 1.2;
 }
 
-.hint{
-    color:#777;
-    font-size:14px;
-    margin-top:-10px;
-    margin-bottom:20px;
-    font-style:italic;
-}
-.main-btn{
-    background:#ff4d88;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:20px;
-    margin-top:25px;
-    display:none;
-    animation:fadeButton .6s ease;
-    width:260px;
+.hint {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
-@keyframes fadeButton{
-    from{
-        opacity:0;
-        transform:translateY(15px);
+.slider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 420px;
+}
+
+.slide {
+    display: none;
+    animation: fade .5s ease;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: scale(.95);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
-.date{
-   display:block;
-   margin-top:5px;
-   font-size:13px;
-   color:#888;
-   font-style:italic;
-}
-@media (max-width:768px){
 
-body{
-    padding:20px 15px;
-}
-
-h1{
-    font-size:42px;
+.polaroid {
+    background: #fff;
+    padding: 12px 12px 35px 12px;
+    border-radius: 5px;
+    width: 260px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: rotate(-2deg);
+    transition: 0.3s;
+    position: relative;
 }
 
-.hint{
-    font-size:18px;
-    margin-bottom:20px;
+.polaroid::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 18px;
+    background: #f5deb3;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    opacity: 0.9;
 }
 
-.polaroid{
-    width:320px;
-   }
-
-.polaroid img{
-    height:420px;
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
 }
 
-.polaroid p{
-    font-size:17px;
+.polaroid img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
 }
 
-.date{
-    font-size:20px;
+.polaroid p {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #444;
+    text-align: center;
+    line-height: 1.4;
 }
 
-.main-btn{
-    width:300px;
-    padding:18px;
-    font-size:20px;
+.date {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
 }
 
+.main-btn {
+    background: #ff4d88;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px auto 0;
+    display: none;
+    animation: fadeButton .6s ease;
+    width: 100%;
+    max-width: 260px;
+    transition: background 0.3s, transform 0.2s;
 }
-.slider{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:520px;
+
+@keyframes fadeButton {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.container{
-     width:100%;
-     max-width:650px;
+
+.main-btn:hover {
+    background: #ff2f73;
+    transform: scale(1.03);
+}
+
+.main-btn:active {
+    transform: scale(0.98);
+}
+
+/* Slightly bigger on larger screens */
+@media (min-width: 480px) {
+    h1 {
+        font-size: 36px;
+    }
+    .hint {
+        font-size: 15px;
+    }
+    .polaroid {
+        width: 300px;
+    }
+    .polaroid img {
+        height: 380px;
+    }
+    .polaroid p {
+        font-size: 16px;
+    }
+    .date {
+        font-size: 13px;
+    }
+    .main-btn {
+        font-size: 17px;
+        max-width: 280px;
+        padding: 14px 22px;
+    }
 }
 </style>
 </head>
@@ -177,118 +195,126 @@ h1{
 <p class="hint">🤍 Swipe to relive our beautiful memories 🤍</p>
 
 <div class="slider">
-<div class="slide active">
-  <div class="polaroid">
-    <img src="photo1.jpg">
-    <p> First date💗 
-    <br>
-    <span class="date">7 December</span>
-    </p>
+    <div class="slide active">
+        <div class="polaroid">
+            <img src="photo1.jpg" alt="First date">
+            <p>
+                First date 💗
+                <br>
+                <span class="date">7 December</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="polaroid">
+            <img src="photo2.jpeg" alt="A day full of unexpected moments">
+            <p>
+                A day full of unexpected moments 😚
+                <br>
+                <span class="date">9 December</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="polaroid">
+            <img src="photo3.jpeg" alt="Our happy place">
+            <p>
+                Our happy place 😁
+                <br>
+                <span class="date">17 December</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="polaroid">
+            <img src="photo4.jpeg" alt="The day we got engaged">
+            <p>
+                The day we got engaged 💍
+                <br>
+                <span class="date">24 December</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="polaroid">
+            <img src="photo5.jpeg" alt="First date after getting engaged">
+            <p>
+                First date after getting engaged ❤️
+                <br>
+                <span class="date">25 December</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="polaroid">
+            <img src="photo6.jpeg" alt="A day full of love">
+            <p>
+                A day full of love 🫣
+                <br>
+                <span class="date">26 December</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="polaroid">
+            <img src="photo7.jpeg" alt="Our last day together">
+            <p>
+                Our last day together 🥺
+                <br>
+                <span class="date">27 December</span>
+            </p>
+        </div>
+    </div>
 </div>
-  </div>
-<div class="slide">
- <div class="polaroid">
-    <img src="photo2.jpeg">
-    <p> A day full of unexpected moments😚
-    <br>
-    <span class="date">9 December</span>
-    </p>
-</div>
-  </div>
-<div class="slide">
- <div class="polaroid">
-   <img src="photo3.jpeg">
-    <p> Our happy place😁
-    <br>
-    <span class="date">17 December</span>
-</p>
-</div>
-  </div>
-<div class="slide">
- <div class="polaroid">
-   <img src="photo4.jpeg">
-    <p> The day we got engaged💍 
-     <br>
-    <span class="date">24 December</span>
-    </p>
-</div>
-  </div>
-<div class="slide">
- <div class="polaroid">
-   <img src="photo5.jpeg">
-    <p> First date after getting engaged❤️ 
-    <br>
-    <span class="date">25 December</span>
-    </p>
-</div>
-  </div>
-<div class="slide">
- <div class="polaroid">
-   <img src="photo6.jpeg">
-    <p> A day full of love🫣
-     <br>
-    <span class="date">26 December</span>
-</p>
-</div>
-  </div>
-<div class="slide">
- <div class="polaroid">
-   <img src="photo7.jpeg">
-    <p> Our last day together🥺 
-     <br>
-    <span class="date">27 December</span>
-</p>
-</div>
-</div>
-  </div>
 
 <br>
 
-
 <a href="envelope.html">
     <button class="main-btn" id="surpriseBtn">
-    💌 One Last Surprise
-</button>
+        💌 One Last Surprise
+    </button>
 </a>
+
+</div>
 
 <script>
 const slides = document.querySelectorAll(".slide");
 let current = 0;
 
-function showSlide(index){
-
-    slides.forEach((slide,i)=>{
-        slide.classList.toggle("active", i===index);
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
     });
 
     const btn = document.getElementById("surpriseBtn");
 
-    if(index === slides.length - 1){
+    if (index === slides.length - 1) {
         btn.style.display = "inline-block";
-    }else{
+    } else {
         btn.style.display = "none";
     }
-
 }
-function nextSlide(){
 
-    if(current < slides.length - 1){
+function nextSlide() {
+    if (current < slides.length - 1) {
         current++;
         showSlide(current);
     }
-
 }
 
-
-
-function prevSlide(){
-
-    if(current > 0){
+function prevSlide() {
+    if (current > 0) {
         current--;
         showSlide(current);
     }
-
 }
+
 showSlide(current);
 
 // Swipe support
@@ -298,35 +324,32 @@ let endX = 0;
 const slider = document.querySelector(".slider");
 
 if (slider) {
-
-    slider.addEventListener("touchstart",(e)=>{
+    slider.addEventListener("touchstart", (e) => {
         startX = e.touches[0].clientX;
     });
 
-    slider.addEventListener("touchend",(e)=>{
+    slider.addEventListener("touchend", (e) => {
         endX = e.changedTouches[0].clientX;
 
-        if(startX - endX > 50){
+        if (startX - endX > 50) {
             nextSlide();
         }
 
-        if(endX - startX > 50){
+        if (endX - startX > 50) {
             prevSlide();
         }
     });
-
 }
+
 // Keyboard support (Desktop)
-document.addEventListener("keydown",(e)=>{
-    if(e.key==="ArrowRight"){
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") {
         nextSlide();
     }
-
-    if(e.key==="ArrowLeft"){
+    if (e.key === "ArrowLeft") {
         prevSlide();
     }
 });
 </script>
-</div>
 </body>
 </html>
