@@ -1,89 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Our Journey ❤️</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background: white;
-    min-height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fffaf5, #ffe6ee);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: flex-start;
     text-align: center;
-    padding: 20px;
-}
-h1{
-    color:#ff4d88;
-    font-size:54px;
-    margin-bottom:20px;
-}
-.timeline{
-    width:100%;
-    max-width:600px;
-    margin:auto;
-    line-height:2;
-    font-size:24px;
-}
-.countdown{
-    width:100%;
-    max-width:600px;
-    margin:30px auto;
-    padding:25px;
-    border-radius:20px;
-    background:#fff0f5;
-    color:#d6336c;
-    font-size:24px;
-    font-weight:bold;
-}
-#timer{
-    font-size: 30px;
-    margin-top: 12px;
+    padding: 30px 20px;
+    -webkit-text-size-adjust: 100%;
 }
 
-button{
-    background:#ff4d88;
-    color:white;
-    border:none;
-    padding:18px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:20px;
-    margin-top:25px;
-    width:300;
+.container {
+    width: 100%;
+    max-width: 650px;
 }
-@media (max-width:768px){
 
-    h1{
-        font-size:30px;
+h1 {
+    color: #ff4d88;
+    font-size: 32px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.timeline {
+    width: 100%;
+    margin: 0 auto 25px;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #444;
+}
+
+.timeline p {
+    margin: 6px 0;
+}
+
+.countdown {
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 20px 15px;
+    border-radius: 20px;
+    background: #fff0f5;
+    color: #d6336c;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#timer {
+    font-size: 22px;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+button {
+    background: #ff4d88;
+    color: #ffffff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 280px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #ff2f73;
+    transform: scale(1.03);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Slightly bigger text on larger screens */
+@media (min-width: 480px) {
+    h1 {
+        font-size: 40px;
     }
-
-    .timeline{
-        font-size:18px;
-        padding:0 10px;
+    .timeline {
+        font-size: 18px;
     }
-
-    .countdown{
-        font-size:18px;
-        padding:18px;
+    .countdown {
+        font-size: 18px;
+        padding: 22px 18px;
     }
-
-    #timer{
-        font-size:22px;
+    #timer {
+        font-size: 26px;
     }
-
-    button{
-        width:100%;
-        max-width:280px;
+    button {
+        font-size: 18px;
+        padding: 16px 22px;
     }
-
-}
-.container{
-    width:100%;
-    max-width:650px;
 }
 </style>
 </head>
@@ -110,6 +134,8 @@ button{
     <button>📸 View Our Memories</button>
 </a>
 
+</div>
+
 <script>
 const weddingDate = new Date("December 12, 2026 00:00:00").getTime();
 
@@ -135,6 +161,5 @@ function updateCountdown() {
 updateCountdown();
 const x = setInterval(updateCountdown, 1000);
 </script>
-</div>
 </body>
 </html>
