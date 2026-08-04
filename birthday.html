@@ -10,107 +10,114 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #fffaf5, #ffe6ee);
     min-height: 100vh;
+    background: linear-gradient(180deg, #fff7fb 0%, #ffe4ee 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    padding: 18px;
     -webkit-text-size-adjust: 100%;
 }
 
 .container {
     width: 100%;
-    max-width: 500px;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 28px;
+    padding: 18px 18px 22px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .hero-image {
-    width: 95%;
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    margin-bottom: 10px;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 22px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
     color: #ff4d88;
-    font-size: 32px;
-    margin: 10px 0 6px;
+    font-size: 28px;
     line-height: 1.2;
+    margin: 16px 0 10px;
+    font-weight: 800;
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 8px auto 16px;
-    color: #444;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+a {
+    text-decoration: none;
 }
 
 button {
-    background: #ff4d88;
-    color: #ffffff;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 16px;
     width: 100%;
-    max-width: 280px;
-    transition: background 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background: #ff2f73;
-    transform: scale(1.03);
+    border: none;
+    border-radius: 999px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #ff4d88, #ff2f73);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 18px rgba(255, 77, 136, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:active {
     transform: scale(0.98);
 }
 
-/* Slightly bigger text on larger screens */
+button:hover {
+    box-shadow: 0 12px 22px rgba(255, 77, 136, 0.34);
+}
+
 @media (min-width: 480px) {
+    .container {
+        padding: 20px 20px 24px;
+    }
+
     h1 {
-        font-size: 40px;
+        font-size: 32px;
     }
+
     p {
-        font-size: 18px;
+        font-size: 16px;
     }
+
     button {
-        font-size: 18px;
-        padding: 16px 22px;
+        font-size: 17px;
     }
 }
 </style>
 </head>
-
 <body>
-<div class="container">
+    <div class="container">
+        <img src="nadeemnashi.jpg" alt="Happy Birthday Love" class="hero-image">
 
-<img src="nadeemnashi.jpg" alt="Our photo" class="hero-image">
+        <h1>🎂 Happy Birthday My Love ❤️</h1>
 
-<h1>Happy Birthday My Love ❤️</h1>
+        <p>
+            May Allah bless you with happiness,<br>
+            success and good health always 🤲✨
+        </p>
 
-<p>
-May Allah bless you with happiness,<br>
-success and good health always 🤲✨
-</p>
-
-<a href="journey.html">
-    <button>❤️ Our Journey ❤️</button>
-</a>
-
-</div>
+        <a href="journey.html">
+            <button>💞 Our Journey 💞</button>
+        </a>
+    </div>
 </body>
 </html>
