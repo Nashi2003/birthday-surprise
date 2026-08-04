@@ -1,55 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Happy Birthday Love ❤️</title>
 
 <style>
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background: white;
+    background: linear-gradient(135deg, #fffaf5, #ffe6ee);
     min-height: 100vh;
-
     display: flex;
-    justify-content: center;   /* Vertical center */
-    align-items: center;       /* Horizontal center */
-
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 20px;
+    -webkit-text-size-adjust: 100%;
 }
-.hero-image{
-    width:95%;
-    max-width:500px;
-    height:auto;
-    border-radius:20px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    margin-bottom:10px;
+
+.container {
+    width: 100%;
+    max-width: 500px;
 }
-h1{
-    color:#ff4d88;
-    font-size:58px;
-    margin:8px 0;
-    line height:1.2;
+
+.hero-image {
+    width: 95%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-button{
-    background:#ff4d88;
-    color:white;
-    border:none;
-    padding:18px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:22px;
-    margin-top:25px;
-    width:300;
+
+h1 {
+    color: #ff4d88;
+    font-size: 32px;
+    margin: 10px 0 6px;
+    line-height: 1.2;
 }
-p{
-    font-size:24px;
-    line-height:1.6;
-    max-width:600px;
-    margin:10px 0 20px;
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 8px auto 16px;
+    color: #444;
 }
-.container{
-    width:100%;
-    max-width:500px;
+
+button {
+    background: #ff4d88;
+    color: #ffffff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 280px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #ff2f73;
+    transform: scale(1.03);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Slightly bigger text on larger screens */
+@media (min-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 18px;
+    }
+    button {
+        font-size: 18px;
+        padding: 16px 22px;
+    }
 }
 </style>
 </head>
@@ -57,18 +98,19 @@ p{
 <body>
 <div class="container">
 
-<img src="nadeemnashi.jpg" class="hero-image">
+<img src="nadeemnashi.jpg" alt="Our photo" class="hero-image">
 
 <h1>🎂 Happy Birthday My Love ❤️</h1>
 
 <p>
-May Allah bless you with happiness,
+May Allah bless you with happiness,<br>
 success and good health always 🤲✨
 </p>
 
 <a href="journey.html">
-<button>❤️ Our Journey ❤️</button>
+    <button>❤️ Our Journey ❤️</button>
 </a>
+
 </div>
 </body>
 </html>
