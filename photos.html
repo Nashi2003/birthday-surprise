@@ -11,7 +11,6 @@ body{
     text-align:center;
     padding:20px;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     min-height:100vh;
@@ -126,21 +125,20 @@ body{
 }
 
 h1{
-    font-size:30px;
+    font-size:42px;
 }
 
 .hint{
-    font-size:15px;
-    margin-bottom:25px;
+    font-size:18px;
+    margin-bottom:20px;
 }
 
 .polaroid{
-    width:280px;
-    padding:12px 12px 35px;
-}
+    width:320px;
+   }
 
 .polaroid img{
-    height:360px;
+    height:420px;
 }
 
 .polaroid p{
@@ -148,13 +146,13 @@ h1{
 }
 
 .date{
-    font-size:14px;
+    font-size:20px;
 }
 
 .main-btn{
-    width:260px;
-    padding:15px;
-    font-size:18px;
+    width:300px;
+    padding:18px;
+    font-size:20px;
 }
 
 }
@@ -163,11 +161,17 @@ h1{
     display:flex;
     justify-content:center;
     align-items:center;
+    min-height:520px;
+}
+.container{
+     width:100%;
+     max-width:650px;
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
 <h1>📸 Our Beautiful Memories ❤️</h1>
 <p class="hint">🤍 Swipe to relive our beautiful memories 🤍</p>
@@ -323,5 +327,6 @@ document.addEventListener("keydown",(e)=>{
     }
 });
 </script>
+</div>
 </body>
 </html>
