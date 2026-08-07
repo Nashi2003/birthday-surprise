@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Happy Birthday Love ❤️</title>
+<title>Happy Birthday Love❤️</title>
 
 <style>
 * {
@@ -21,6 +21,80 @@ body {
     align-items: center;
     padding: 18px;
     -webkit-text-size-adjust: 100%;
+    overflow: hidden;
+}
+
+.hearts, .balloons, .confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 77, 136, 0.28);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    animation: floatUp linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart::before {
+    left: -7px;
+    top: 0;
+}
+
+.heart::after {
+    left: 0;
+    top: -7px;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -80px;
+    width: 44px;
+    height: 56px;
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: inset -6px -10px 14px rgba(0,0,0,0.10);
+    animation: balloonRise linear infinite;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -28px;
+    width: 2px;
+    height: 28px;
+    background: rgba(255, 77, 136, 0.35);
+    transform: translateX(-50%);
+}
+
+.balloon.one { left: 10%; background: #ff8fb0; animation-duration: 11s; animation-delay: 0s; }
+.balloon.two { left: 25%; background: #ffc0d4; animation-duration: 13s; animation-delay: 2s; }
+.balloon.three { left: 75%; background: #ff6f9e; animation-duration: 12s; animation-delay: 1s; }
+.balloon.four { left: 88%; background: #ffd1e1; animation-duration: 14s; animation-delay: 3s; }
+
+.confetti-piece {
+    position: absolute;
+    top: -12px;
+    width: 8px;
+    height: 14px;
+    opacity: 0.8;
+    animation: confettiFall linear infinite;
 }
 
 .container {
@@ -33,6 +107,9 @@ body {
     padding: 18px 18px 22px;
     text-align: center;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    position: relative;
+    z-index: 2;
+    animation: cardPop 0.9s ease;
 }
 
 .hero-image {
@@ -50,6 +127,7 @@ h1 {
     line-height: 1.2;
     margin: 16px 0 10px;
     font-weight: 800;
+    animation: titlePulse 2.2s ease-in-out infinite;
 }
 
 p {
@@ -61,6 +139,7 @@ p {
 
 a {
     text-decoration: none;
+    display: block;
 }
 
 button {
@@ -75,6 +154,7 @@ button {
     cursor: pointer;
     box-shadow: 0 10px 18px rgba(255, 77, 136, 0.28);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: buttonGlow 2s ease-in-out infinite;
 }
 
 button:active {
@@ -83,6 +163,38 @@ button:active {
 
 button:hover {
     box-shadow: 0 12px 22px rgba(255, 77, 136, 0.34);
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(45deg) scale(0.85); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(45deg) scale(1.2); opacity: 0; }
+}
+
+@keyframes balloonRise {
+    0% { transform: translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(120vh) rotate(360deg); }
+}
+
+@keyframes cardPop {
+    0% { transform: scale(0.96); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 0 rgba(255,77,136,0); }
+    50% { transform: scale(1.03); text-shadow: 0 0 12px rgba(255,77,136,0.18); }
+}
+
+@keyframes buttonGlow {
+    0%, 100% { box-shadow: 0 10px 18px rgba(255, 77, 136, 0.22); }
+    50% { box-shadow: 0 14px 24px rgba(255, 77, 136, 0.34); }
 }
 
 @media (min-width: 480px) {
@@ -105,19 +217,64 @@ button:hover {
 </style>
 </head>
 <body>
-    <div class="container">
-        <img src="nadeemnashi.jpg" alt="Happy Birthday Love" class="hero-image">
 
-        <h1>🎂 Happy Birthday My Love ❤️</h1>
+<div class="hearts" id="hearts"></div>
+<div class="balloons">
+    <div class="balloon one"></div>
+    <div class="balloon two"></div>
+    <div class="balloon three"></div>
+    <div class="balloon four"></div>
+</div>
+<div class="confetti" id="confetti"></div>
 
-        <p>
-            May Allah bless you with happiness,<br>
-            success and good health always 🤲✨
-        </p>
+<div class="container">
+    <img src="nadeemnashi.jpg" alt="Happy Birthday Love" class="hero-image">
 
-        <a href="journey.html">
-            <button>💞 Our Journey 💞</button>
-        </a>
-    </div>
+    <h1>Happy Birthday My Love❤️</h1>
+
+    <p>
+        May Allah bless you with happiness,<br>
+        success and good health always🤲✨
+    </p>
+
+    <a href="journey.html">
+        <button>Our Journey💗</button>
+    </a>
+</div>
+
+<script>
+function createHearts() {
+    const hearts = document.getElementById("hearts");
+    for (let i = 0; i < 18; i++) {
+        const h = document.createElement("span");
+        h.className = "heart";
+        h.style.left = Math.random() * 100 + "%";
+        h.style.animationDuration = (6 + Math.random() * 8) + "s";
+        h.style.animationDelay = (Math.random() * 6) + "s";
+        h.style.opacity = (0.15 + Math.random() * 0.35).toFixed(2);
+        h.style.transform = "rotate(45deg) scale(" + (0.7 + Math.random() * 0.9).toFixed(2) + ")";
+        hearts.appendChild(h);
+    }
+}
+
+function createConfetti() {
+    const confetti = document.getElementById("confetti");
+    const colors = ["#ff4d88", "#ff8fb0", "#ffd166", "#7ae582", "#7cc7ff", "#d68cff"];
+    for (let i = 0; i < 32; i++) {
+        const c = document.createElement("span");
+        c.className = "confetti-piece";
+        c.style.left = Math.random() * 100 + "%";
+        c.style.background = colors[i % colors.length];
+        c.style.animationDuration = (4 + Math.random() * 4) + "s";
+        c.style.animationDelay = (Math.random() * 2) + "s";
+        c.style.transform = "rotate(" + (Math.random() * 180) + "deg)";
+        confetti.appendChild(c);
+    }
+}
+
+createHearts();
+createConfetti();
+</script>
+
 </body>
 </html>

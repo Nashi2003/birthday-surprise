@@ -14,176 +14,285 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #fffaf5, #ffe6ee);
-    text-align: center;
-    padding: 20px 15px 40px;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
+    padding: 18px 14px 30px;
     -webkit-text-size-adjust: 100%;
 }
 
 .container {
     width: 100%;
-    max-width: 650px;
+    max-width: 520px;
 }
 
-h1 {
-    color: #ff4d88;
-    font-size: 28px;
-    margin-bottom: 10px;
-    line-height: 1.2;
+.post {
+    background: #0b0b0b;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    margin-bottom: 16px;
 }
 
-.hint {
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.slider {
-    width: 100%;
+.post-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 420px;
+    justify-content: space-between;
+    padding: 12px 14px;
 }
 
-.slide {
-    display: none;
-    animation: fade .5s ease;
+.profile-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.slide.active {
-    display: block;
+.profile-pic {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff4d88;
+    background: #222;
 }
 
-@keyframes fade {
-    from {
-        opacity: 0;
-        transform: scale(.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.user-info {
+    text-align: left;
 }
 
-.polaroid {
-    background: #fff;
-    padding: 12px 12px 35px 12px;
-    border-radius: 5px;
-    width: 260px;
-    margin: auto;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transform: rotate(-2deg);
-    transition: 0.3s;
+.username {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.post-date {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 2px;
+}
+
+.menu {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 6px;
+}
+
+.image-wrap {
     position: relative;
+    background: #111;
+    overflow: hidden;
 }
 
-.polaroid::before {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 18px;
-    background: #f5deb3;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    opacity: 0.9;
-}
-
-.polaroid:hover {
-    transform: rotate(0deg) scale(1.03);
-}
-
-.polaroid img {
+.post-image {
     width: 100%;
-    height: 340px;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     display: block;
-    border-radius: 3px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-.polaroid p {
-    margin-top: 10px;
-    font-size: 15px;
-    color: #444;
-    text-align: center;
-    line-height: 1.4;
+.heart-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
 }
 
-.date {
-    display: block;
-    margin-top: 4px;
-    font-size: 12px;
-    color: #888;
-    font-style: italic;
+.heart-overlay.show {
+    animation: heartPop .75s ease forwards;
 }
 
-.main-btn {
-    background: #ff4d88;
-    color: #ffffff;
+.heart-overlay span {
+    font-size: 90px;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+}
+
+@keyframes heartPop {
+    0% { opacity: 0; transform: scale(.4); }
+    20% { opacity: 1; transform: scale(1.08); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.15); }
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px 8px;
+}
+
+.actions-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
     border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
+    background: transparent;
+    color: #fff;
+    font-size: 24px;
     cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    user-select: none;
+}
+
+.like-btn.liked {
+    animation: likePulse .25s ease;
+    color: #ff4d88;
+}
+
+@keyframes likePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.28); }
+    100% { transform: scale(1); }
+}
+
+.likes {
+    padding: 0 14px 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-align: left;
+}
+
+.caption {
+    padding: 0 14px 10px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+    text-align: left;
+}
+
+.caption b {
+    color: #fff;
+}
+
+.comments {
+    padding: 0 14px 12px;
+    text-align: left;
+}
+
+.comment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.82);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 8px 10px;
+    margin-top: 8px;
+}
+
+.comment-text {
+    flex: 1;
+    word-break: break-word;
+}
+
+.delete-comment {
+    border: none;
+    background: #ff3b5c;
+    color: #fff;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.add-comment {
+    display: flex;
+    gap: 8px;
+    padding: 0 14px 16px;
+}
+
+.add-comment input {
+    flex: 1;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: #111;
+    color: #fff;
+    border-radius: 999px;
+    padding: 12px 14px;
+    font-size: 14px;
+    outline: none;
+}
+
+.add-comment input::placeholder {
+    color: rgba(255,255,255,0.45);
+}
+
+.add-comment button {
+    border: none;
+    background: #ff4d88;
+    color: #fff;
+    border-radius: 999px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.bottom-btn {
+    display: block;
+    width: fit-content;
+    min-width: 240px;
+    margin: 18px auto 0;
+    border: none;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #ff4d88, #ff2f73, #ff8a5b);
+    color: #fff;
+    padding: 14px 24px;
     font-size: 16px;
-    margin: 20px auto 0;
-    display: none;
-    animation: fadeButton .6s ease;
-    width: 100%;
-    max-width: 260px;
-    transition: background 0.3s, transform 0.2s;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(255, 77, 136, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    text-align: center;
 }
 
-@keyframes fadeButton {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.bottom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(255, 77, 136, 0.45);
 }
 
-.main-btn:hover {
-    background: #ff2f73;
-    transform: scale(1.03);
+.bottom-btn:active {
+    transform: translateY(0) scale(0.98);
+    opacity: 0.95;
 }
 
-.main-btn:active {
-    transform: scale(0.98);
+.bookmark {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
 
-/* Slightly bigger on larger screens */
-@media (min-width: 480px) {
-    h1 {
-        font-size: 36px;
-    }
-    .hint {
-        font-size: 15px;
-    }
-    .polaroid {
-        width: 300px;
-    }
-    .polaroid img {
-        height: 380px;
-    }
-    .polaroid p {
-        font-size: 16px;
-    }
-    .date {
-        font-size: 13px;
-    }
-    .main-btn {
-        font-size: 17px;
-        max-width: 280px;
-        padding: 14px 22px;
-    }
+.bookmark::before {
+    content: "🔖";
+    font-size: 22px;
+    line-height: 1;
+}
+
+.bookmark.saved::before {
+    content: "🔖";
 }
 </style>
 </head>
@@ -191,165 +300,359 @@ h1 {
 <body>
 <div class="container">
 
-<h1>📸 Our Beautiful Memories ❤️</h1>
-<p class="hint">🤍 Swipe to relive our beautiful memories 🤍</p>
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-left">
+                <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+                <div class="user-info">
+                    <div class="username">our.memories</div>
+                    <div class="post-date">7 December</div>
+                </div>
+            </div>
+            <div class="menu" onclick="openMenu()">⋮</div>
+        </div>
 
-<div class="slider">
-    <div class="slide active">
-        <div class="polaroid">
-            <img src="photo1.jpg" alt="First date">
-            <p>
-                First date 💗
-                <br>
-                <span class="date">7 December</span>
-            </p>
+        <div class="image-wrap" ondblclick="doubleTapLike(this)">
+            <img src="photo1.jpg" alt="First date" class="post-image">
+            <div class="heart-overlay"><span>❤️</span></div>
+        </div>
+
+        <div class="post-actions">
+            <div class="actions-left">
+                <button class="icon-btn like-btn" onclick="toggleLike(this)">♡</button>
+                <button class="icon-btn" onclick="focusComment(this)">💬</button>
+                <button class="icon-btn" onclick="shareMemory()">↗</button>
+            </div>
+            <div class="bookmark" onclick="toggleBookmark(this)"></div>
+        </div>
+
+        <div class="likes"><span class="like-count">120</span> likes</div>
+
+        <div class="caption">
+            <b>our.memories</b> First date 💗
+        </div>
+
+        <div class="comments"></div>
+
+        <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button onclick="addComment(this)">Post</button>
         </div>
     </div>
 
-    <div class="slide">
-        <div class="polaroid">
-            <img src="photo2.jpeg" alt="A day full of unexpected moments">
-            <p>
-                A day full of unexpected moments 😚
-                <br>
-                <span class="date">9 December</span>
-            </p>
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-left">
+                <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+                <div class="user-info">
+                    <div class="username">our.memories</div>
+                    <div class="post-date">9 December</div>
+                </div>
+            </div>
+            <div class="menu" onclick="openMenu()">⋮</div>
+        </div>
+
+        <div class="image-wrap" ondblclick="doubleTapLike(this)">
+            <img src="photo2.jpeg" alt="A day full of unexpected moments" class="post-image">
+            <div class="heart-overlay"><span>❤️</span></div>
+        </div>
+
+        <div class="post-actions">
+            <div class="actions-left">
+                <button class="icon-btn like-btn" onclick="toggleLike(this)">♡</button>
+                <button class="icon-btn" onclick="focusComment(this)">💬</button>
+                <button class="icon-btn" onclick="shareMemory()">↗</button>
+            </div>
+            <div class="bookmark" onclick="toggleBookmark(this)"></div>
+        </div>
+
+        <div class="likes"><span class="like-count">98</span> likes</div>
+
+        <div class="caption">
+            <b>our.memories</b> A day full of unexpected moments 😚
+        </div>
+
+        <div class="comments"></div>
+
+        <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button onclick="addComment(this)">Post</button>
         </div>
     </div>
 
-    <div class="slide">
-        <div class="polaroid">
-            <img src="photo3.jpeg" alt="Our happy place">
-            <p>
-                Our happy place 😁
-                <br>
-                <span class="date">17 December</span>
-            </p>
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-left">
+                <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+                <div class="user-info">
+                    <div class="username">our.memories</div>
+                    <div class="post-date">17 December</div>
+                </div>
+            </div>
+            <div class="menu" onclick="openMenu()">⋮</div>
+        </div>
+
+        <div class="image-wrap" ondblclick="doubleTapLike(this)">
+            <img src="photo3.jpeg" alt="Our happy place" class="post-image">
+            <div class="heart-overlay"><span>❤️</span></div>
+        </div>
+
+        <div class="post-actions">
+            <div class="actions-left">
+                <button class="icon-btn like-btn" onclick="toggleLike(this)">♡</button>
+                <button class="icon-btn" onclick="focusComment(this)">💬</button>
+                <button class="icon-btn" onclick="shareMemory()">↗</button>
+            </div>
+            <div class="bookmark" onclick="toggleBookmark(this)"></div>
+        </div>
+
+        <div class="likes"><span class="like-count">143</span> likes</div>
+
+        <div class="caption">
+            <b>our.memories</b> Our happy place 😁
+        </div>
+
+        <div class="comments"></div>
+
+        <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button onclick="addComment(this)">Post</button>
         </div>
     </div>
 
-    <div class="slide">
-        <div class="polaroid">
-            <img src="photo4.jpeg" alt="The day we got engaged">
-            <p>
-                The day we got engaged 💍
-                <br>
-                <span class="date">24 December</span>
-            </p>
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-left">
+                <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+                <div class="user-info">
+                    <div class="username">our.memories</div>
+                    <div class="post-date">24 December</div>
+                </div>
+            </div>
+            <div class="menu" onclick="openMenu()">⋮</div>
+        </div>
+
+        <div class="image-wrap" ondblclick="doubleTapLike(this)">
+            <img src="photo4.jpeg" alt="The day we got engaged" class="post-image">
+            <div class="heart-overlay"><span>❤️</span></div>
+        </div>
+
+        <div class="post-actions">
+            <div class="actions-left">
+                <button class="icon-btn like-btn" onclick="toggleLike(this)">♡</button>
+                <button class="icon-btn" onclick="focusComment(this)">💬</button>
+                <button class="icon-btn" onclick="shareMemory()">↗</button>
+            </div>
+            <div class="bookmark" onclick="toggleBookmark(this)"></div>
+        </div>
+
+        <div class="likes"><span class="like-count">210</span> likes</div>
+
+        <div class="caption">
+            <b>our.memories</b> The day we got engaged 💍
+        </div>
+
+        <div class="comments"></div>
+
+        <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button onclick="addComment(this)">Post</button>
         </div>
     </div>
 
-    <div class="slide">
-        <div class="polaroid">
-            <img src="photo5.jpeg" alt="First date after getting engaged">
-            <p>
-                First date after getting engaged ❤️
-                <br>
-                <span class="date">25 December</span>
-            </p>
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-left">
+                <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+                <div class="user-info">
+                    <div class="username">our.memories</div>
+                    <div class="post-date">25 December</div>
+                </div>
+            </div>
+            <div class="menu" onclick="openMenu()">⋮</div>
+        </div>
+
+        <div class="image-wrap" ondblclick="doubleTapLike(this)">
+            <img src="photo5.jpeg" alt="First date after getting engaged" class="post-image">
+            <div class="heart-overlay"><span>❤️</span></div>
+        </div>
+
+        <div class="post-actions">
+            <div class="actions-left">
+                <button class="icon-btn like-btn" onclick="toggleLike(this)">♡</button>
+                <button class="icon-btn" onclick="focusComment(this)">💬</button>
+                <button class="icon-btn" onclick="shareMemory()">↗</button>
+            </div>
+            <div class="bookmark" onclick="toggleBookmark(this)"></div>
+        </div>
+
+        <div class="likes"><span class="like-count">176</span> likes</div>
+
+        <div class="caption">
+            <b>our.memories</b> First date after getting engaged ❤️
+        </div>
+
+        <div class="comments"></div>
+
+        <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button onclick="addComment(this)">Post</button>
         </div>
     </div>
 
-    <div class="slide">
-        <div class="polaroid">
-            <img src="photo6.jpeg" alt="A day full of love">
-            <p>
-                A day full of love 🫣
-                <br>
-                <span class="date">26 December</span>
-            </p>
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-left">
+                <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+                <div class="user-info">
+                    <div class="username">our.memories</div>
+                    <div class="post-date">26 December</div>
+                </div>
+            </div>
+            <div class="menu" onclick="openMenu()">⋮</div>
+        </div>
+
+        <div class="image-wrap" ondblclick="doubleTapLike(this)">
+            <img src="photo6.jpeg" alt="A day full of love" class="post-image">
+            <div class="heart-overlay"><span>❤️</span></div>
+        </div>
+
+        <div class="post-actions">
+            <div class="actions-left">
+                <button class="icon-btn like-btn" onclick="toggleLike(this)">♡</button>
+                <button class="icon-btn" onclick="focusComment(this)">💬</button>
+                <button class="icon-btn" onclick="shareMemory()">↗</button>
+            </div>
+            <div class="bookmark" onclick="toggleBookmark(this)"></div>
+        </div>
+
+        <div class="likes"><span class="like-count">189</span> likes</div>
+
+        <div class="caption">
+            <b>our.memories</b> A day full of love 🫣
+        </div>
+
+        <div class="comments"></div>
+
+        <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button onclick="addComment(this)">Post</button>
         </div>
     </div>
 
-    <div class="slide">
-        <div class="polaroid">
-            <img src="photo7.jpeg" alt="Our last day together">
-            <p>
-                Our last day together 🥺
-                <br>
-                <span class="date">27 December</span>
-            </p>
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-left">
+                <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+                <div class="user-info">
+                    <div class="username">our.memories</div>
+                    <div class="post-date">27 December</div>
+                </div>
+            </div>
+            <div class="menu" onclick="openMenu()">⋮</div>
+        </div>
+
+        <div class="image-wrap" ondblclick="doubleTapLike(this)">
+            <img src="photo7.jpeg" alt="Our last day together" class="post-image">
+            <div class="heart-overlay"><span>❤️</span></div>
+        </div>
+
+        <div class="post-actions">
+            <div class="actions-left">
+                <button class="icon-btn like-btn" onclick="toggleLike(this)">♡</button>
+                <button class="icon-btn" onclick="focusComment(this)">💬</button>
+                <button class="icon-btn" onclick="shareMemory()">↗</button>
+            </div>
+            <div class="bookmark" onclick="toggleBookmark(this)"></div>
+        </div>
+
+        <div class="likes"><span class="like-count">240</span> likes</div>
+
+        <div class="caption">
+            <b>our.memories</b> Our last day together 🥺
+        </div>
+
+        <div class="comments"></div>
+
+        <div class="add-comment">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button onclick="addComment(this)">Post</button>
         </div>
     </div>
-</div>
 
-<br>
-
-<a href="envelope.html">
-    <button class="main-btn" id="surpriseBtn">
+    <button class="bottom-btn" id="surpriseBtn" onclick="location.href='envelope.html'">
         💌 One Last Surprise
     </button>
-</a>
 
 </div>
 
 <script>
-const slides = document.querySelectorAll(".slide");
-let current = 0;
+function toggleLike(btn) {
+    const post = btn.closest(".post");
+    const countEl = post.querySelector(".like-count");
+    let count = parseInt(countEl.textContent, 10);
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-    });
-
-    const btn = document.getElementById("surpriseBtn");
-
-    if (index === slides.length - 1) {
-        btn.style.display = "inline-block";
+    if (!btn.classList.contains("liked")) {
+        btn.classList.add("liked");
+        btn.textContent = "❤️";
+        count += 1;
     } else {
-        btn.style.display = "none";
+        btn.classList.remove("liked");
+        btn.textContent = "♡";
+        count -= 1;
     }
+    countEl.textContent = count;
 }
 
-function nextSlide() {
-    if (current < slides.length - 1) {
-        current++;
-        showSlide(current);
-    }
+function doubleTapLike(target) {
+    const post = target.closest(".post");
+    const likeBtn = post.querySelector(".like-btn");
+    if (!likeBtn.classList.contains("liked")) toggleLike(likeBtn);
+
+    const heart = target.querySelector(".heart-overlay");
+    heart.classList.remove("show");
+    void heart.offsetWidth;
+    heart.classList.add("show");
+    setTimeout(() => heart.classList.remove("show"), 750);
 }
 
-function prevSlide() {
-    if (current > 0) {
-        current--;
-        showSlide(current);
-    }
+function focusComment(btn) {
+    btn.closest(".post").querySelector(".comment-input").focus();
 }
 
-showSlide(current);
+function addComment(btn) {
+    const post = btn.closest(".post");
+    const input = post.querySelector(".comment-input");
+    const text = input.value.trim();
+    if (!text) return;
 
-// Swipe support
-let startX = 0;
-let endX = 0;
-
-const slider = document.querySelector(".slider");
-
-if (slider) {
-    slider.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-    });
-
-    slider.addEventListener("touchend", (e) => {
-        endX = e.changedTouches[0].clientX;
-
-        if (startX - endX > 50) {
-            nextSlide();
-        }
-
-        if (endX - startX > 50) {
-            prevSlide();
-        }
-    });
+    const commentsBox = post.querySelector(".comments");
+    const div = document.createElement("div");
+    div.className = "comment-item";
+    div.innerHTML = `
+        <span class="comment-text"></span>
+        <button class="delete-comment" onclick="deleteComment(this)">Delete</button>
+    `;
+    div.querySelector(".comment-text").textContent = text;
+    commentsBox.appendChild(div);
+    input.value = "";
 }
 
-// Keyboard support (Desktop)
-document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
-        nextSlide();
-    }
-    if (e.key === "ArrowLeft") {
-        prevSlide();
-    }
-});
+function deleteComment(btn) {
+    btn.closest(".comment-item").remove();
+}
+
+function shareMemory() {
+    alert("This memory is too special to share ❤️");
+}
+
+function openMenu() {
+    alert("Menu coming soon ✨");
+}
+
+function toggleBookmark(el) {
+    el.classList.toggle("saved");
+}
 </script>
 </body>
 </html>

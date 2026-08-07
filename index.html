@@ -6,7 +6,6 @@
 <title>Surprise ❤️</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -15,122 +14,162 @@
 }
 
 body{
+    min-height:100vh;
     background:linear-gradient(135deg,#fffaf5,#ffe6ee);
-    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:20px;
 }
 
 .container{
-    background:white;
-    padding:40px 30px;
-    border-radius:20px;
+    background:rgba(255,255,255,0.82);
+    backdrop-filter:blur(10px);
+    padding:34px 26px;
+    border-radius:24px;
     text-align:center;
-    width:90%;
-    max-width:350px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    width:100%;
+    max-width:360px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.12);
+    border:1px solid rgba(255,255,255,0.55);
 }
 
 .lock{
-    font-size:70px;
-    margin-bottom:15px;
+    font-size:72px;
+    margin-bottom:12px;
+    display:inline-block;
+    transition:transform .35s ease, opacity .35s ease;
+}
+
+.lock.open{
+    transform:scale(1.15) rotate(-8deg);
 }
 
 h1{
     color:#ff4d88;
     margin-bottom:10px;
+    font-size:28px;
+    line-height:1.2;
 }
 
 p{
     color:#666;
-    margin-bottom:25px;
-    line-height:1.5;
+    margin-bottom:22px;
+    line-height:1.55;
+    font-size:15px;
 }
 
 input{
     width:100%;
     padding:14px;
     border:2px solid #ffd6e7;
-    border-radius:10px;
+    border-radius:14px;
     text-align:center;
     font-size:18px;
     outline:none;
-    margin-bottom:20px;
+    margin-bottom:16px;
+    background:#fff;
 }
 
 input:focus{
     border-color:#ff4d88;
+    box-shadow:0 0 0 4px rgba(255,77,136,0.12);
 }
 
 button{
     width:100%;
     padding:14px;
     border:none;
-    border-radius:30px;
-    background:#ff4d88;
+    border-radius:999px;
+    background:linear-gradient(135deg,#ff4d88,#ff2f73);
     color:white;
     font-size:17px;
+    font-weight:700;
     cursor:pointer;
-    transition:.3s;
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 10px 18px rgba(255,77,136,0.25);
 }
 
 button:hover{
-    background:#ff2f73;
-    transform:scale(1.03);
+    transform:translateY(-1px);
+    box-shadow:0 12px 22px rgba(255,77,136,0.3);
 }
 
-</style>
+button:active{
+    transform:scale(.98);
+}
 
+.shake{
+    animation:shake .35s ease;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-6px)}
+    40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}
+    80%{transform:translateX(4px)}
+}
+
+.success{
+    animation:pop .8s ease forwards;
+}
+
+@keyframes pop{
+    0%{transform:scale(1);opacity:1}
+    50%{transform:scale(1.12);opacity:1}
+    100%{transform:scale(.92);opacity:0}
+}
+</style>
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="card">
 
-<div class="lock" id="lock">🔒</div>
+    <div class="lock" id="lock">🔒</div>
 
-<h1>Surprise ❤️</h1>
+    <h1>Surprise ❤️</h1>
 
-<p>
-Enter our engagement date<br>
-to unlock the surprise 💍
-</p>
+    <p>
+        Enter our engagement date<br>
+        to unlock the surprise 💍
+    </p>
 
-<input
-type="password"
-id="password"
-placeholder="DD-MM-YYYY">
+    <input
+        type="password"
+        id="password"
+        placeholder="DD-MM-YYYY"
+        inputmode="numeric"
+        autocomplete="off">
 
-<button onclick="checkPassword()">
-🔓 Unlock
-</button>
+    <button onclick="checkPassword()">
+        🔓 Unlock
+    </button>
 
 </div>
 
 <script>
-
 function checkPassword(){
+    const pass = document.getElementById("password").value.trim();
+    const lock = document.getElementById("lock");
+    const card = document.getElementById("card");
 
-let pass=document.getElementById("password").value;
+    if(pass === "24-12-2025"){
+        lock.textContent = "🔓";
+        lock.classList.add("open");
+        card.classList.add("success");
 
-if(pass=="24-12-2025"){
+        setTimeout(function(){
+            window.location.href = "birthday.html";
+        }, 800);
 
-document.getElementById("lock").innerHTML="🔓";
-
-setTimeout(function(){
-
-window.location.href="birthday.html";
-
-},800);
-
-}else{
-
-alert("Oops! That's not our special date ❤️");
-
+    } else {
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        alert("Oops! That's not our special date ❤️");
+    }
 }
-
-}
-
 </script>
 
 </body>

@@ -13,100 +13,183 @@
 }
 
 body {
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #fffaf5, #ffe6ee);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
-    padding: 30px 20px;
+    color: #333;
+    padding: 24px 16px 30px;
     -webkit-text-size-adjust: 100%;
 }
 
 .container {
     width: 100%;
-    max-width: 650px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 h1 {
+    text-align: center;
     color: #ff4d88;
     font-size: 32px;
-    margin-bottom: 20px;
     line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 22px;
 }
 
 .timeline {
-    width: 100%;
-    margin: 0 auto 25px;
-    line-height: 1.8;
-    font-size: 16px;
-    color: #444;
+    display: grid;
+    gap: 14px;
+    margin-bottom: 22px;
 }
 
-.timeline p {
-    margin: 6px 0;
+.event-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,0.78);
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+    backdrop-filter: blur(8px);
+}
+
+.date-box {
+    width: 82px;
+    min-width: 82px;
+    height: 88px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ff4d88 0%, #ff2f73 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    flex-shrink: 0;
+}
+
+.date-month {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.date-day {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: 4px;
+}
+
+.event-content {
+    flex: 1;
+    text-align: left;
+}
+
+.event-content h3 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.event-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
 }
 
 .countdown {
-    width: 100%;
-    max-width: 600px;
-    margin: 25px auto;
-    padding: 20px 15px;
-    border-radius: 20px;
-    background: #fff0f5;
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 24px;
+    padding: 18px 16px;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+    backdrop-filter: blur(8px);
+    margin-bottom: 18px;
+}
+
+.countdown-title {
     color: #d6336c;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 800;
+    margin-bottom: 10px;
 }
 
 #timer {
-    font-size: 22px;
-    margin-top: 10px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ff4d88;
+    letter-spacing: 0.5px;
+}
+
+.button-wrap {
+    display: flex;
+    justify-content: center;
 }
 
 button {
-    background: #ff4d88;
-    color: #ffffff;
+    background: linear-gradient(135deg, #ff4d88, #ff2f73);
+    color: #fff;
     border: none;
-    padding: 14px 20px;
-    border-radius: 30px;
+    padding: 14px 22px;
+    border-radius: 9999px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 16px;
+    font-weight: 700;
     width: 100%;
     max-width: 280px;
-    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 12px 22px rgba(255, 77, 136, 0.30);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-    background: #ff2f73;
-    transform: scale(1.03);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(255, 77, 136, 0.38);
 }
 
 button:active {
-    transform: scale(0.98);
+    transform: translateY(0) scale(0.98);
 }
 
-/* Slightly bigger text on larger screens */
-@media (min-width: 480px) {
+@media (max-width: 600px) {
     h1 {
-        font-size: 40px;
-    }
-    .timeline {
-        font-size: 18px;
-    }
-    .countdown {
-        font-size: 18px;
-        padding: 22px 18px;
-    }
-    #timer {
         font-size: 26px;
     }
-    button {
-        font-size: 18px;
-        padding: 16px 22px;
+
+    .event-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date-box {
+        width: 100%;
+        min-width: 0;
+        height: 70px;
+        border-radius: 16px;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .date-day {
+        margin-top: 0;
+    }
+
+    .event-content {
+        width: 100%;
+    }
+
+    #timer {
+        font-size: 22px;
     }
 }
 </style>
@@ -114,26 +197,76 @@ button:active {
 
 <body>
 <div class="container">
+    <h1>❤️ Our Journey ❤️</h1>
+    <div class="subtitle">A calendar of our sweetest memories</div>
 
-<h1>❤️ Our Journey ❤️</h1>
+    <div class="timeline">
+        <div class="event-card">
+            <div class="date-box">
+                <div class="date-month">Nov</div>
+                <div class="date-day">27</div>
+            </div>
+            <div class="event-content">
+                <h3>Our First Date</h3>
+                <p>The day our story started and everything felt special.</p>
+            </div>
+        </div>
 
-<div class="timeline">
-    <p>💗 Our First Date — 27 November</p>
-    <p>📞 Our First Call — 2 December</p>
-    <p>💋 Our First kiss — 9 December</p>
-    <p>💍 The Day We Got Engaged — 24 December</p>
-    <p>❤️ And this is just the beginning...</p>
-</div>
+        <div class="event-card">
+            <div class="date-box">
+                <div class="date-month">Dec</div>
+                <div class="date-day">2</div>
+            </div>
+            <div class="event-content">
+                <h3>Our First Call</h3>
+                <p>The first voice that made my heart smile.</p>
+            </div>
+        </div>
 
-<div class="countdown">
-    <div>💍 Wedding Countdown</div>
-    <div id="timer">Loading...</div>
-</div>
+        <div class="event-card">
+            <div class="date-box">
+                <div class="date-month">Dec</div>
+                <div class="date-day">9</div>
+            </div>
+            <div class="event-content">
+                <h3>Our First Kiss</h3>
+                <p>A moment we will always remember with love.</p>
+            </div>
+        </div>
 
-<a href="photos.html">
-    <button>📸 View Our Memories</button>
-</a>
+        <div class="event-card">
+            <div class="date-box">
+                <div class="date-month">Dec</div>
+                <div class="date-day">24</div>
+            </div>
+            <div class="event-content">
+                <h3>The Day We Got Engaged</h3>
+                <p>One of the most beautiful milestones in our journey.</p>
+            </div>
+        </div>
 
+        <div class="event-card">
+            <div class="date-box">
+                <div class="date-month">Forever</div>
+                <div class="date-day">❤️</div>
+            </div>
+            <div class="event-content">
+                <h3>And This is Just the Beginning...</h3>
+                <p>More memories, more love, and a beautiful future together.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="countdown">
+        <div class="countdown-title">💍 Wedding Countdown</div>
+        <div id="timer">Loading...</div>
+    </div>
+
+    <div class="button-wrap">
+        <a href="photos.html" style="text-decoration:none; width:100%; max-width:280px;">
+            <button>📸 View Our Memories</button>
+        </a>
+    </div>
 </div>
 
 <script>
@@ -144,7 +277,7 @@ function updateCountdown() {
     const distance = weddingDate - now;
 
     if (distance <= 0) {
-        document.getElementById("timer").innerHTML = "✨ Today is the wedding day! ✨";
+        document.getElementById("timer").textContent = "✨ Today is the wedding day! ✨";
         clearInterval(x);
         return;
     }
@@ -154,7 +287,7 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("timer").innerHTML =
+    document.getElementById("timer").textContent =
         `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
