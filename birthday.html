@@ -24,7 +24,7 @@ body {
     overflow: hidden;
 }
 
-.hearts, .balloons, .confetti {
+.hearts, .balloons {
     position: fixed;
     inset: 0;
     pointer-events: none;
@@ -88,15 +88,6 @@ body {
 .balloon.three { left: 75%; background: #ff6f9e; animation-duration: 12s; animation-delay: 1s; }
 .balloon.four { left: 88%; background: #ffd1e1; animation-duration: 14s; animation-delay: 3s; }
 
-.confetti-piece {
-    position: absolute;
-    top: -12px;
-    width: 8px;
-    height: 14px;
-    opacity: 0.8;
-    animation: confettiFall linear infinite;
-}
-
 .container {
     width: 100%;
     max-width: 420px;
@@ -134,7 +125,17 @@ p {
     color: #555;
     font-size: 15px;
     line-height: 1.7;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+}
+
+.bouquet {
+    width: 100%;
+    max-width: 280px;
+    display: block;
+    margin: 0 auto 18px;
+    border-radius: 18px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+    animation: bouquetFloat 3s ease-in-out infinite;
 }
 
 a {
@@ -177,11 +178,6 @@ button:hover {
     100% { transform: translateY(-120vh); opacity: 0; }
 }
 
-@keyframes confettiFall {
-    0% { transform: translateY(-10vh) rotate(0deg); }
-    100% { transform: translateY(120vh) rotate(360deg); }
-}
-
 @keyframes cardPop {
     0% { transform: scale(0.96); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
@@ -195,6 +191,11 @@ button:hover {
 @keyframes buttonGlow {
     0%, 100% { box-shadow: 0 10px 18px rgba(255, 77, 136, 0.22); }
     50% { box-shadow: 0 14px 24px rgba(255, 77, 136, 0.34); }
+}
+
+@keyframes bouquetFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
 
 @media (min-width: 480px) {
@@ -213,6 +214,10 @@ button:hover {
     button {
         font-size: 17px;
     }
+
+    .bouquet {
+        max-width: 300px;
+    }
 }
 </style>
 </head>
@@ -225,17 +230,14 @@ button:hover {
     <div class="balloon three"></div>
     <div class="balloon four"></div>
 </div>
-<div class="confetti" id="confetti"></div>
 
 <div class="container">
     <img src="nadeemnashi.jpg" alt="Happy Birthday Love" class="hero-image">
 
-     <h1>Happy Birthday My Love🩷</h1>
+    <h1>Happy Birthday My Love🩷</h1>
 
-    <p>
-        May Allah bless you with happiness,<br>
-        success and good health always🤲✨
-    </p>
+    
+    <img src="bouquet.png" alt="Bouquet" class="bouquet">
 
     <a href="journey.html">
         <button>Our Journey🤍</button>
@@ -256,24 +258,7 @@ function createHearts() {
         hearts.appendChild(h);
     }
 }
-
-function createConfetti() {
-    const confetti = document.getElementById("confetti");
-    const colors = ["#ff4d88", "#ff8fb0", "#ffd166", "#7ae582", "#7cc7ff", "#d68cff"];
-    for (let i = 0; i < 32; i++) {
-        const c = document.createElement("span");
-        c.className = "confetti-piece";
-        c.style.left = Math.random() * 100 + "%";
-        c.style.background = colors[i % colors.length];
-        c.style.animationDuration = (4 + Math.random() * 4) + "s";
-        c.style.animationDelay = (Math.random() * 2) + "s";
-        c.style.transform = "rotate(" + (Math.random() * 180) + "deg)";
-        confetti.appendChild(c);
-    }
-}
-
 createHearts();
-createConfetti();
 </script>
 
 </body>
