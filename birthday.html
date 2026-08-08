@@ -125,17 +125,7 @@ p {
     color: #555;
     font-size: 15px;
     line-height: 1.7;
-    margin-bottom: 16px;
-}
-
-.bouquet {
-    width: 100%;
-    max-width: 280px;
-    display: block;
-    margin: 0 auto 18px;
-    border-radius: 18px;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
-    animation: bouquetFloat 3s ease-in-out infinite;
+    margin-bottom: 18px;
 }
 
 a {
@@ -193,11 +183,6 @@ button:hover {
     50% { box-shadow: 0 14px 24px rgba(255, 77, 136, 0.34); }
 }
 
-@keyframes bouquetFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-}
-
 @media (min-width: 480px) {
     .container {
         padding: 20px 20px 24px;
@@ -213,10 +198,6 @@ button:hover {
 
     button {
         font-size: 17px;
-    }
-
-    .bouquet {
-        max-width: 300px;
     }
 }
 </style>
@@ -236,9 +217,7 @@ button:hover {
 
     <h1>Happy Birthday My Love🩷</h1>
 
-    
-    <img src="bouquet.png" alt="Bouquet" class="bouquet">
-
+ 
     <a href="journey.html">
         <button>Our Journey🤍</button>
     </a>
@@ -258,6 +237,7 @@ function createHearts() {
         hearts.appendChild(h);
     }
 }
+
 createHearts();
 </script>
 
