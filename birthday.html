@@ -6,240 +6,125 @@
 <title>Happy Birthday Love❤️</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    background: linear-gradient(180deg, #fff7fb 0%, #ffe4ee 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 18px;
-    -webkit-text-size-adjust: 100%;
-    overflow: hidden;
+body{
+    min-height:100vh;
+    overflow:hidden;
+    background:#000;
 }
 
-.hearts, .balloons {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
 }
 
-.heart {
-    position: absolute;
-    bottom: -30px;
-    width: 14px;
-    height: 14px;
-    background: rgba(255, 77, 136, 0.28);
-    transform: rotate(45deg);
-    border-radius: 2px;
-    animation: floatUp linear infinite;
+.hero-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
 }
 
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background: inherit;
-    border-radius: 50%;
+.overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    padding:24px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.58) 0%,
+        rgba(0,0,0,0.20) 45%,
+        rgba(0,0,0,0.05) 100%
+    );
 }
 
-.heart::before {
-    left: -7px;
-    top: 0;
+.message{
+    color:#fff;
+    font-size:clamp(24px, 5vw, 38px);
+    font-weight:800;
+    text-align:center;
+    text-shadow:0 4px 14px rgba(0,0,0,0.35);
+    margin-bottom:18px;
+    line-height:1.25;
 }
 
-.heart::after {
-    left: 0;
-    top: -7px;
+.bouquet{
+    width:min(280px, 72vw);
+    display:block;
+    margin-bottom:18px;
+    border-radius:18px;
+    box-shadow:0 10px 22px rgba(0,0,0,0.18);
 }
 
-.balloon {
-    position: absolute;
-    bottom: -80px;
-    width: 44px;
-    height: 56px;
-    border-radius: 50% 50% 45% 45%;
-    box-shadow: inset -6px -10px 14px rgba(0,0,0,0.10);
-    animation: balloonRise linear infinite;
+a{
+    width:min(320px, 88vw);
+    text-decoration:none;
 }
 
-.balloon::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -28px;
-    width: 2px;
-    height: 28px;
-    background: rgba(255, 77, 136, 0.35);
-    transform: translateX(-50%);
+button{
+    width:100%;
+    border:none;
+    border-radius:999px;
+    padding:14px 18px;
+    background:linear-gradient(135deg,#ff4d88,#ff2f73);
+    color:white;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 18px rgba(255,77,136,0.28);
 }
 
-.balloon.one { left: 10%; background: #ff8fb0; animation-duration: 11s; animation-delay: 0s; }
-.balloon.two { left: 25%; background: #ffc0d4; animation-duration: 13s; animation-delay: 2s; }
-.balloon.three { left: 75%; background: #ff6f9e; animation-duration: 12s; animation-delay: 1s; }
-.balloon.four { left: 88%; background: #ffd1e1; animation-duration: 14s; animation-delay: 3s; }
-
-.container {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 28px;
-    padding: 18px 18px 22px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    position: relative;
-    z-index: 2;
-    animation: cardPop 0.9s ease;
+button:active{
+    transform:scale(0.98);
 }
 
-.hero-image {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    display: block;
-    border-radius: 22px;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
-}
-
-h1 {
-    color: #ff4d88;
-    font-size: 28px;
-    line-height: 1.2;
-    margin: 16px 0 10px;
-    font-weight: 800;
-    animation: titlePulse 2.2s ease-in-out infinite;
-}
-
-p {
-    color: #555;
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 18px;
-}
-
-a {
-    text-decoration: none;
-    display: block;
-}
-
-button {
-    width: 100%;
-    border: none;
-    border-radius: 999px;
-    padding: 14px 18px;
-    background: linear-gradient(135deg, #ff4d88, #ff2f73);
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 10px 18px rgba(255, 77, 136, 0.28);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    animation: buttonGlow 2s ease-in-out infinite;
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-button:hover {
-    box-shadow: 0 12px 22px rgba(255, 77, 136, 0.34);
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(45deg) scale(0.85); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(-120vh) rotate(45deg) scale(1.2); opacity: 0; }
-}
-
-@keyframes balloonRise {
-    0% { transform: translateY(0); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(-120vh); opacity: 0; }
-}
-
-@keyframes cardPop {
-    0% { transform: scale(0.96); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes titlePulse {
-    0%, 100% { transform: scale(1); text-shadow: 0 0 0 rgba(255,77,136,0); }
-    50% { transform: scale(1.03); text-shadow: 0 0 12px rgba(255,77,136,0.18); }
-}
-
-@keyframes buttonGlow {
-    0%, 100% { box-shadow: 0 10px 18px rgba(255, 77, 136, 0.22); }
-    50% { box-shadow: 0 14px 24px rgba(255, 77, 136, 0.34); }
-}
-
-@media (min-width: 480px) {
-    .container {
-        padding: 20px 20px 24px;
+@media (max-width: 480px){
+    .overlay{
+        padding:18px 16px 22px;
     }
 
-    h1 {
-        font-size: 32px;
+    .bouquet{
+        width:min(230px, 70vw);
     }
 
-    p {
-        font-size: 16px;
-    }
-
-    button {
-        font-size: 17px;
+    button{
+        font-size:16px;
     }
 }
 </style>
 </head>
 <body>
 
-<div class="hearts" id="hearts"></div>
-<div class="balloons">
-    <div class="balloon one"></div>
-    <div class="balloon two"></div>
-    <div class="balloon three"></div>
-    <div class="balloon four"></div>
-</div>
-
-<div class="container">
+<div class="hero">
     <img src="nadeemnashi.jpg" alt="Happy Birthday Love" class="hero-image">
 
-    <h1>Happy Birthday My Love🩷</h1>
+    <div class="overlay">
+        <div class="message">Happy Birthday My Love 🩷</div>
 
- 
-    <a href="journey.html">
-        <button>Our Journey🤍</button>
-    </a>
+        
+
+        <a href="journey.html">
+            <button>Our Journey🤍</button>
+        </a>
+    </div>
 </div>
 
-<script>
-function createHearts() {
-    const hearts = document.getElementById("hearts");
-    for (let i = 0; i < 18; i++) {
-        const h = document.createElement("span");
-        h.className = "heart";
-        h.style.left = Math.random() * 100 + "%";
-        h.style.animationDuration = (6 + Math.random() * 8) + "s";
-        h.style.animationDelay = (Math.random() * 6) + "s";
-        h.style.opacity = (0.15 + Math.random() * 0.35).toFixed(2);
-        h.style.transform = "rotate(45deg) scale(" + (0.7 + Math.random() * 0.9).toFixed(2) + ")";
-        hearts.appendChild(h);
-    }
-}
-
-createHearts();
-</script>
+</body>
+</html>
+        </a>
+    </div>
+</div>
 
 </body>
 </html>
