@@ -121,10 +121,25 @@ body {
 }
 
 @keyframes heartPop {
-    0% { opacity: 0; transform: scale(.4); }
-    20% { opacity: 1; transform: scale(1.08); }
-    50% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(1.15); }
+    0% {
+        opacity: 0;
+        transform: scale(.4);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.15);
+    }
 }
 
 .post-actions {
@@ -157,9 +172,17 @@ body {
 }
 
 @keyframes likePulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.28); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.28);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .likes {
@@ -306,23 +329,29 @@ body {
 </head>
 
 <body>
+
 <div class="container">
 
+    <!-- POST 1 -->
     <div class="post">
         <div class="post-header">
             <div class="profile-left">
                 <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+
                 <div class="user-info">
                     <div class="username">our.memories</div>
                     <div class="location">The Fryery, Biyyam, Ponnani</div>
                 </div>
             </div>
+
             <div class="menu" onclick="openMenu()">⋮</div>
         </div>
 
         <div class="image-wrap" ondblclick="doubleTapLike(this)">
             <img src="photo1.jpg" alt="First date" class="post-image">
-            <div class="heart-overlay"><span>❤️</span></div>
+            <div class="heart-overlay">
+                <span>❤️</span>
+            </div>
         </div>
 
         <div class="post-actions">
@@ -331,10 +360,13 @@ body {
                 <button class="icon-btn" onclick="focusComment(this)">💬</button>
                 <button class="icon-btn" onclick="shareMemory()">↗</button>
             </div>
+
             <div class="bookmark" onclick="toggleBookmark(this)"></div>
         </div>
 
-        <div class="likes"><span class="like-count">120</span> likes</div>
+        <div class="likes">
+            <span class="like-count">120</span> likes
+        </div>
 
         <div class="caption">
             <b>our.memories</b> First date 😍
@@ -350,21 +382,26 @@ body {
         </div>
     </div>
 
+    <!-- POST 2 -->
     <div class="post">
         <div class="post-header">
             <div class="profile-left">
                 <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+
                 <div class="user-info">
                     <div class="username">our.memories</div>
                     <div class="location">Kunnamkulam, Kerala</div>
                 </div>
             </div>
+
             <div class="menu" onclick="openMenu()">⋮</div>
         </div>
 
         <div class="image-wrap" ondblclick="doubleTapLike(this)">
             <img src="photo2.jpeg" alt="A day full of unexpected moments" class="post-image">
-            <div class="heart-overlay"><span>❤️</span></div>
+            <div class="heart-overlay">
+                <span>❤️</span>
+            </div>
         </div>
 
         <div class="post-actions">
@@ -373,10 +410,13 @@ body {
                 <button class="icon-btn" onclick="focusComment(this)">💬</button>
                 <button class="icon-btn" onclick="shareMemory()">↗</button>
             </div>
+
             <div class="bookmark" onclick="toggleBookmark(this)"></div>
         </div>
 
-        <div class="likes"><span class="like-count">98</span> likes</div>
+        <div class="likes">
+            <span class="like-count">98</span> likes
+        </div>
 
         <div class="caption">
             <b>our.memories</b> A day full of unexpected moments 😚
@@ -392,21 +432,26 @@ body {
         </div>
     </div>
 
+    <!-- POST 3 -->
     <div class="post">
         <div class="post-header">
             <div class="profile-left">
                 <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+
                 <div class="user-info">
                     <div class="username">our.memories</div>
-                    <div class="location">Vilangan Hilss,Trissur</div>
+                    <div class="location">Vilangan Hills, Thrissur</div>
                 </div>
             </div>
+
             <div class="menu" onclick="openMenu()">⋮</div>
         </div>
 
         <div class="image-wrap" ondblclick="doubleTapLike(this)">
             <img src="photo3.jpeg" alt="Our happy place" class="post-image">
-            <div class="heart-overlay"><span>❤️</span></div>
+            <div class="heart-overlay">
+                <span>❤️</span>
+            </div>
         </div>
 
         <div class="post-actions">
@@ -415,10 +460,13 @@ body {
                 <button class="icon-btn" onclick="focusComment(this)">💬</button>
                 <button class="icon-btn" onclick="shareMemory()">↗</button>
             </div>
+
             <div class="bookmark" onclick="toggleBookmark(this)"></div>
         </div>
 
-        <div class="likes"><span class="like-count">143</span> likes</div>
+        <div class="likes">
+            <span class="like-count">143</span> likes
+        </div>
 
         <div class="caption">
             <b>our.memories</b> Our happy place 😁
@@ -434,21 +482,26 @@ body {
         </div>
     </div>
 
+    <!-- POST 4 -->
     <div class="post">
         <div class="post-header">
             <div class="profile-left">
                 <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+
                 <div class="user-info">
                     <div class="username">our.memories</div>
-                    <div class="location">KMK banquet hall, Trithala</div>
+                    <div class="location">KMK Banquet Hall, Thrithala</div>
                 </div>
             </div>
+
             <div class="menu" onclick="openMenu()">⋮</div>
         </div>
 
         <div class="image-wrap" ondblclick="doubleTapLike(this)">
             <img src="photo4.jpeg" alt="The day we got engaged" class="post-image">
-            <div class="heart-overlay"><span>❤️</span></div>
+            <div class="heart-overlay">
+                <span>❤️</span>
+            </div>
         </div>
 
         <div class="post-actions">
@@ -457,10 +510,13 @@ body {
                 <button class="icon-btn" onclick="focusComment(this)">💬</button>
                 <button class="icon-btn" onclick="shareMemory()">↗</button>
             </div>
+
             <div class="bookmark" onclick="toggleBookmark(this)"></div>
         </div>
 
-        <div class="likes"><span class="like-count">210</span> likes</div>
+        <div class="likes">
+            <span class="like-count">210</span> likes
+        </div>
 
         <div class="caption">
             <b>our.memories</b> The day we got engaged 💍
@@ -476,21 +532,26 @@ body {
         </div>
     </div>
 
+    <!-- POST 5 -->
     <div class="post">
         <div class="post-header">
             <div class="profile-left">
                 <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+
                 <div class="user-info">
                     <div class="username">our.memories</div>
                     <div class="location">Khoj Calicut, Kozhikode</div>
                 </div>
             </div>
+
             <div class="menu" onclick="openMenu()">⋮</div>
         </div>
 
         <div class="image-wrap" ondblclick="doubleTapLike(this)">
             <img src="photo5.jpeg" alt="First date after getting engaged" class="post-image">
-            <div class="heart-overlay"><span>❤️</span></div>
+            <div class="heart-overlay">
+                <span>❤️</span>
+            </div>
         </div>
 
         <div class="post-actions">
@@ -499,10 +560,13 @@ body {
                 <button class="icon-btn" onclick="focusComment(this)">💬</button>
                 <button class="icon-btn" onclick="shareMemory()">↗</button>
             </div>
+
             <div class="bookmark" onclick="toggleBookmark(this)"></div>
         </div>
 
-        <div class="likes"><span class="like-count">176</span> likes</div>
+        <div class="likes">
+            <span class="like-count">176</span> likes
+        </div>
 
         <div class="caption">
             <b>our.memories</b> First date after getting engaged ❤️
@@ -518,21 +582,26 @@ body {
         </div>
     </div>
 
+    <!-- POST 6 -->
     <div class="post">
         <div class="post-header">
             <div class="profile-left">
                 <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+
                 <div class="user-info">
                     <div class="username">our.memories</div>
-                    <div class="location">Vilangan Hilss,Trissur</div>
+                    <div class="location">Vilangan Hills, Thrissur</div>
                 </div>
             </div>
+
             <div class="menu" onclick="openMenu()">⋮</div>
         </div>
 
         <div class="image-wrap" ondblclick="doubleTapLike(this)">
             <img src="photo6.jpeg" alt="A day full of love" class="post-image">
-            <div class="heart-overlay"><span>❤️</span></div>
+            <div class="heart-overlay">
+                <span>❤️</span>
+            </div>
         </div>
 
         <div class="post-actions">
@@ -541,10 +610,13 @@ body {
                 <button class="icon-btn" onclick="focusComment(this)">💬</button>
                 <button class="icon-btn" onclick="shareMemory()">↗</button>
             </div>
+
             <div class="bookmark" onclick="toggleBookmark(this)"></div>
         </div>
 
-        <div class="likes"><span class="like-count">189</span> likes</div>
+        <div class="likes">
+            <span class="like-count">189</span> likes
+        </div>
 
         <div class="caption">
             <b>our.memories</b> A day full of love 🫣
@@ -560,21 +632,26 @@ body {
         </div>
     </div>
 
+    <!-- POST 7 -->
     <div class="post">
         <div class="post-header">
             <div class="profile-left">
                 <img src="nadeemnashi.jpg" alt="Profile" class="profile-pic">
+
                 <div class="user-info">
                     <div class="username">our.memories</div>
-                    <div class="location">kumbidi, Palakkad</div>
+                    <div class="location">Kumbidi, Palakkad</div>
                 </div>
             </div>
+
             <div class="menu" onclick="openMenu()">⋮</div>
         </div>
 
         <div class="image-wrap" ondblclick="doubleTapLike(this)">
             <img src="photo7.jpeg" alt="Our last day together" class="post-image">
-            <div class="heart-overlay"><span>❤️</span></div>
+            <div class="heart-overlay">
+                <span>❤️</span>
+            </div>
         </div>
 
         <div class="post-actions">
@@ -583,10 +660,13 @@ body {
                 <button class="icon-btn" onclick="focusComment(this)">💬</button>
                 <button class="icon-btn" onclick="shareMemory()">↗</button>
             </div>
+
             <div class="bookmark" onclick="toggleBookmark(this)"></div>
         </div>
 
-        <div class="likes"><span class="like-count">240</span> likes</div>
+        <div class="likes">
+            <span class="like-count">240</span> likes
+        </div>
 
         <div class="caption">
             <b>our.memories</b> Our last day together 🥺
@@ -609,6 +689,100 @@ body {
 </div>
 
 <script>
+const COMMENTS_KEY = "ourMemoriesComments";
+
+function getSavedComments() {
+    try {
+        return JSON.parse(localStorage.getItem(COMMENTS_KEY)) || {};
+    } catch (error) {
+        return {};
+    }
+}
+
+function saveComments(comments) {
+    localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+}
+
+function getPostIndex(post) {
+    return Array.from(document.querySelectorAll(".post")).indexOf(post);
+}
+
+function renderSavedComments() {
+    const savedComments = getSavedComments();
+    const posts = document.querySelectorAll(".post");
+
+    posts.forEach(function(post, postIndex) {
+        const commentsBox = post.querySelector(".comments");
+
+        if (!commentsBox) return;
+
+        commentsBox.innerHTML = "";
+
+        const comments = savedComments[postIndex] || [];
+
+        comments.forEach(function(comment) {
+            createCommentElement(commentsBox, comment, postIndex);
+        });
+    });
+}
+
+function createCommentElement(commentsBox, commentText, postIndex) {
+    const div = document.createElement("div");
+    div.className = "comment-item";
+
+    const textSpan = document.createElement("span");
+    textSpan.className = "comment-text";
+    textSpan.textContent = commentText;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-comment";
+    deleteButton.textContent = "Delete";
+
+    deleteButton.onclick = function() {
+        deleteComment(postIndex, commentText);
+    };
+
+    div.appendChild(textSpan);
+    div.appendChild(deleteButton);
+    commentsBox.appendChild(div);
+}
+
+function addComment(btn) {
+    const post = btn.closest(".post");
+    const input = post.querySelector(".comment-input");
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    const postIndex = getPostIndex(post);
+    const savedComments = getSavedComments();
+
+    if (!savedComments[postIndex]) {
+        savedComments[postIndex] = [];
+    }
+
+    savedComments[postIndex].push(text);
+    saveComments(savedComments);
+
+    input.value = "";
+    renderSavedComments();
+}
+
+function deleteComment(postIndex, commentText) {
+    const savedComments = getSavedComments();
+
+    if (!savedComments[postIndex]) return;
+
+    const commentIndex = savedComments[postIndex].indexOf(commentText);
+
+    if (commentIndex !== -1) {
+        savedComments[postIndex].splice(commentIndex, 1);
+    }
+
+    saveComments(savedComments);
+    renderSavedComments();
+}
+
 function toggleLike(btn) {
     const post = btn.closest(".post");
     const countEl = post.querySelector(".like-count");
@@ -623,45 +797,32 @@ function toggleLike(btn) {
         btn.textContent = "♡";
         count -= 1;
     }
+
     countEl.textContent = count;
 }
 
 function doubleTapLike(target) {
     const post = target.closest(".post");
     const likeBtn = post.querySelector(".like-btn");
-    if (!likeBtn.classList.contains("liked")) toggleLike(likeBtn);
+
+    if (!likeBtn.classList.contains("liked")) {
+        toggleLike(likeBtn);
+    }
 
     const heart = target.querySelector(".heart-overlay");
+
     heart.classList.remove("show");
     void heart.offsetWidth;
     heart.classList.add("show");
-    setTimeout(() => heart.classList.remove("show"), 750);
+
+    setTimeout(function() {
+        heart.classList.remove("show");
+    }, 750);
 }
 
 function focusComment(btn) {
-    btn.closest(".post").querySelector(".comment-input").focus();
-}
-
-function addComment(btn) {
-    const post = btn.closest(".post");
-    const input = post.querySelector(".comment-input");
-    const text = input.value.trim();
-    if (!text) return;
-
-    const commentsBox = post.querySelector(".comments");
-    const div = document.createElement("div");
-    div.className = "comment-item";
-    div.innerHTML = `
-        <span class="comment-text"></span>
-        <button class="delete-comment" onclick="deleteComment(this)">Delete</button>
-    `;
-    div.querySelector(".comment-text").textContent = text;
-    commentsBox.appendChild(div);
-    input.value = "";
-}
-
-function deleteComment(btn) {
-    btn.closest(".comment-item").remove();
+    const input = btn.closest(".post").querySelector(".comment-input");
+    input.focus();
 }
 
 function shareMemory() {
@@ -675,6 +836,11 @@ function openMenu() {
 function toggleBookmark(el) {
     el.classList.toggle("saved");
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    renderSavedComments();
+});
 </script>
+
 </body>
 </html>
