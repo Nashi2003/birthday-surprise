@@ -14,14 +14,15 @@
 }
 
 body {
-    min-height: 100vh;
-    background: linear-gradient(180deg, #fff7fb 0%, #ffe4ee 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 18px;
-    -webkit-text-size-adjust: 100%;
-    overflow: hidden;
+     font-family:Arial,sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#fff,#fff0f6,#ffe4ef);
+    padding:25px 15px;
+    overflow-x:hidden;
 }
 
 .hearts, .balloons {
@@ -89,28 +90,25 @@ body {
 .balloon.four { left: 88%; background: #ffd1e1; animation-duration: 14s; animation-delay: 3s; }
 
 .container {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 28px;
-    padding: 18px 18px 22px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    position: relative;
-    z-index: 2;
-    animation: cardPop 0.9s ease;
+     width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,0.92);
+    padding:25px 22px 30px;
+    border-radius:30px;
+    box-shadow:0 15px 45px rgba(255,77,136,0.18);
+    animation:cardIn 1s ease;
 }
 
 .hero-image {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    display: block;
-    border-radius: 22px;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+     width:100%;
+    max-width:350px;
+    height:auto;
+    border-radius:22px;
+    display:block;
+    margin:0 auto 22px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
 }
+
 
 h1 {
     color: #ff4d88;
@@ -133,27 +131,22 @@ a {
     display: block;
 }
 
-button {
-    width: 100%;
-    border: none;
-    border-radius: 999px;
-    padding: 14px 18px;
-    background: linear-gradient(135deg, #ff4d88, #ff2f73);
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 10px 18px rgba(255, 77, 136, 0.28);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    animation: buttonGlow 2s ease-in-out infinite;
+.journey-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#ff4d88;
+    color:white;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 7px 18px rgba(255,77,136,0.25);
+    transition:.3s;
 }
 
-button:active {
-    transform: scale(0.98);
-}
-
-button:hover {
-    box-shadow: 0 12px 22px rgba(255, 77, 136, 0.34);
+.journey-btn:hover{
+    transform:translateY(-3px);
+    background:#ff2f73;
 }
 
 @keyframes floatUp {
@@ -185,7 +178,8 @@ button:hover {
 
 @media (min-width: 480px) {
     .container {
-        padding: 20px 20px 24px;
+        max-width:370px;
+        padding:22px 18px 28px;
     }
 
     h1 {
@@ -196,9 +190,12 @@ button:hover {
         font-size: 16px;
     }
 
-    button {
-        font-size: 17px;
+    .journey-btn{
+        width:90%;
+        max-width:280px;
+        font-size:18px;
     }
+
 }
 </style>
 </head>
@@ -215,11 +212,10 @@ button:hover {
 <div class="container">
     <img src="nadeemnashi.jpg" alt="Happy Birthday Love" class="hero-image">
 
-    <p>Happy Birthday My Love🩷</p>
+  
 
- 
-    <a href="journey.html">
-        <button>Our Journey🤍</button>
+           <a href="journey.html" class="journey-btn">
+        ❤️ Our Journey ❤️
     </a>
 </div>
 
